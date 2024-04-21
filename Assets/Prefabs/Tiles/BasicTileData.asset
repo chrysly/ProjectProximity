@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc241e17dca6d5a4b9fe53fee0a4bfae, type: 3}
   m_Name: BasicTileData
   m_EditorClassIdentifier: 
-  tileVisual: {fileID: 0}
+  tileVisual: {fileID: 21300000, guid: ddb977aad65ca4140a043ba6b23602a3, type: 3}
   isWalkable: 1

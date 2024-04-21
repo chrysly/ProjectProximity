@@ -5,5 +5,5 @@ using UnityEngine;
 // might combine this with the gameManager?
 public class TurnManager : MonoBehaviour
 {
-    
+
 }

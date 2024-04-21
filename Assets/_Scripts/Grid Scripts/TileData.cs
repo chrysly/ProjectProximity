@@ -8,3 +8,5 @@ public class TileData : ScriptableObject
     public Sprite tileVisual;
     public bool isWalkable = true;
 }
+
+// i fucked this up whops
