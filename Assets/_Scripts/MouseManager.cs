@@ -7,7 +7,6 @@ public class MouseManager : MonoBehaviour
     // ig store currently highlighted tiles
 
     public void HighlightTiles(HashSet<Tile> moveTiles, HashSet<Tile> attackTiles) {
-        Debug.Log("why r u null " + moveTiles.Count);
         foreach(Tile t in moveTiles) {
             t.GetComponent<SpriteRenderer>().color = Color.blue;
         }
