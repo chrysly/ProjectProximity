@@ -5,11 +5,11 @@ using UnityEngine;
 public class Actor : MonoBehaviour {
     [SerializeField] private ActorData data;
     private float _health;
-    //private Vector2 _gridPosition;
     private Tile _currTile;
+    public bool hasMoved;
 
-    private HashSet<Tile> _currMoveRange;
-    private HashSet<Tile> _currAttackRange;
+    private HashSet<Tile> _currMoveRange = new();
+    private HashSet<Tile> _currAttackRange = new();
 
     private MouseManager _mouseManager;
 
@@ -17,9 +17,15 @@ public class Actor : MonoBehaviour {
         _mouseManager = FindObjectOfType<MouseManager>();
     }
 
-    public void onTurnStart() {
-        _currMoveRange = _currTile.getTilesInRange(data.moveRange, _currTile);
-        _currAttackRange = _currTile.getTilesInRange(data.attackRange, _currTile);
+    // change logic later
+    public void OnTurnStart(Tile tile) {
+        UpdateCurrTile(tile);
+        _currMoveRange = _currTile.getTilesInRange(data.moveRange, GridManager.Instance.GetGrid());
+        _currAttackRange = _currTile.getTilesInRange(data.attackRange, GridManager.Instance.GetGrid());
+    }
+
+    public void UpdateCurrTile(Tile tile) {
+        _currTile = tile;
     }
 
     public void MoveActor(Vector2 position) {
@@ -28,10 +34,13 @@ public class Actor : MonoBehaviour {
 
     // when the unit is hovered over show the available tiles it can go to
     void OnMouseOver() {
+        this.GetComponent<SpriteRenderer>().color = Color.gray;
+        Debug.Log(_currMoveRange.Count);
         _mouseManager.HighlightTiles(_currMoveRange, _currAttackRange);
     }
 
     void OnMouseExit() {
+        this.GetComponent<SpriteRenderer>().color = Color.white;
         _mouseManager.UnhighlightTiles();
     }
 }

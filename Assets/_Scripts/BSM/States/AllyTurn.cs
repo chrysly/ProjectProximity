@@ -9,6 +9,11 @@ public partial class BattleStateMachine {
             Debug.Log("ally turn");
         }
 
+        public override void Update() {
+            base.Update();
+
+        }
+
         public override void Exit(BattleStateInput i) {
             base.Exit(i);
         }
