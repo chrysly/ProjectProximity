@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Star shard
-  m_Shader: {fileID: -6465566751694194690, guid: cc864366d1e03f44c9de68bc3b38cbb2, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 987d0396f2955eb4bafe435006c95518,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

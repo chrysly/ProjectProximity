@@ -1721,6 +1721,142 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1080950158166265704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625149384528027959, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827959951280510488, guid: 3008e8f2f9f502447a76a7f06b7f63c1,
+        type: 3}
+      propertyPath: m_Name
+      value: Healer Pixie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3008e8f2f9f502447a76a7f06b7f63c1, type: 3}
+--- !u!1001 &1138504305038989951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813111531732130236, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146346711099038055, guid: 121e4ccf9e80b954e837fa8fa709307b,
+        type: 3}
+      propertyPath: m_Name
+      value: Extender Pixie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 121e4ccf9e80b954e837fa8fa709307b, type: 3}
 --- !u!1 &1755463256421312883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1939,74 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &3374463656822113845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 562859033180728108, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133174833684899365, guid: ed38a7214f553dd4f83a7980e61a97ba,
+        type: 3}
+      propertyPath: m_Name
+      value: Fighter Pixie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed38a7214f553dd4f83a7980e61a97ba, type: 3}
 --- !u!4 &4377033173701051025
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,6 +2093,74 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1001 &6310975543898121574
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637404115535873936, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963023729986663111, guid: 6c64740d984515b48ae4d9e5a55407ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Mage Pixie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c64740d984515b48ae4d9e5a55407ed, type: 3}
 --- !u!222 &7036333853747132767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1913,6 +2185,74 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &7483362817442505553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086258492256709326, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158650439807836532, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314,
+        type: 3}
+      propertyPath: m_Name
+      value: Commander Pixie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c1ec7935c41ddf4f8ddf1dc3ad50314, type: 3}
 --- !u!114 &8321938940905754197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,3 +2414,8 @@ SceneRoots:
   - {fileID: 410829104}
   - {fileID: 644035744}
   - {fileID: 1813258309}
+  - {fileID: 1138504305038989951}
+  - {fileID: 7483362817442505553}
+  - {fileID: 3374463656822113845}
+  - {fileID: 1080950158166265704}
+  - {fileID: 6310975543898121574}
