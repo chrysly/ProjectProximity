@@ -12,25 +12,33 @@ public class GridManager : MonoBehaviour {
     private void Awake() {
         if (_instance != null) {  Destroy(this.gameObject); }
         else { _instance = this; }
+
+        intGrid = Transpose(inputGrid);
     }
     #endregion Singleton
+
+    [SerializeField] private GameLogic gameLogic;
 
     // tile prefabs
     public List<Tile> tileTypes;
 
     // 0 = Grass
     // 1 = Water
-    private int[,] Inputgrid = new int[,] {
-        {0, 0, 1},
-        {0, 1, 1},
-        {0, 1, 1},
+    private int[,] inputGrid = new int[,] {
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 1},
+        {0, 0, 0, 1, 1},
+        {0, 0, 0, 1, 1},
     };
 
-    private int[,] grid;
+    private int[,] intGrid;
+    private Tile[,] tileGrid;
+    public Tile[,] GetGrid() { return tileGrid; }
 
     void Start() {
-        grid = Transpose(Inputgrid);
-        GenerateGrid();
+        intGrid = Transpose(inputGrid);
+        tileGrid = new Tile[inputGrid.GetLength(0), inputGrid.GetLength(1)];
     }
 
     // helper to transpose input grid
@@ -50,17 +58,19 @@ public class GridManager : MonoBehaviour {
     }
 
     // generates a grid of tiles populated by class Tile
-    private void GenerateGrid() {
-        for (int x = 0; x < grid.GetLength(0); x++) {
-            for (int y = 0; y < grid.GetLength(1); y++) {
-                switch (grid[x, y]) {
+    public void GenerateGrid() {
+        for (int x = 0; x < intGrid.GetLength(0); x++) {
+            for (int y = 0; y < intGrid.GetLength(1); y++) {
+                switch (intGrid[x, y]) {
                     case 0:
                         var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile0.name = tileTypes[0].name + " " + x + " " + y;
+                        tileGrid[x, y] = spawnedTile0;
                         break;
                     case 1:
                         var spawnedTile1 = Instantiate(tileTypes[1], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile1.name = tileTypes[1].name + " " + x + " " + y;
+                        tileGrid[x, y] = spawnedTile1;
                         break;
                     default:
                         Debug.Log("yeah something fucked up");
@@ -68,5 +78,16 @@ public class GridManager : MonoBehaviour {
                 }
             }
         }
+        PlaceUnits();   // spawn units on field
+    }
+
+    private void PlaceUnits() {
+        Debug.Log("i have been called");
+        List<Actor> allies = gameLogic.GetUnits(0);
+        List<Actor> enemies = gameLogic.GetUnits(1);
+
+        // hard coded bc fml
+        var newUnit = Instantiate(allies[0], new Vector3(0,0), Quaternion.identity);
+        newUnit.OnTurnStart(tileGrid[0, 0]);
     }
 }
