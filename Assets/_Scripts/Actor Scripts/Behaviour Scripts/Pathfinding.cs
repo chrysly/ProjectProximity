@@ -22,8 +22,28 @@ public class Pathfinding
 
         while (currTile != start) {
             path.Add(currTile);
+            currTile = currTile.parent;
         }
+        
+        path.Reverse();
+        return path;
+    }
 
-        return null;
+    void CalculatePath(Tile start, Tile target) {
+        List<Tile> openSet = new List<Tile>();
+        HashSet<Tile> closedTile = new HashSet<Tile>();
+        openSet.Add(start);
+
+        while (openSet.Count > 0) {
+            Tile currTile = openSet[0];
+            for (int i = 1; i < openSet.Count; i++) {
+                if (openSet[i].fCost < currTile.fCost ||
+                    openSet[i].fCost == currTile.fCost &&
+                    openSet[i].hCost < currTile.hCost) {
+
+                    currTile = openSet[i];
+                }
+            }
+        }
     }
 }
