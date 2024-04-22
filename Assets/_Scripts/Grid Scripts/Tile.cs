@@ -33,4 +33,23 @@ public class Tile : MonoBehaviour
 
         return tilesInRange;
     }
+    
+    #region Pathfinding
+
+    /// <summary>
+    /// Distance from starting node
+    /// </summary>
+    public int gCost;
+    
+    /// <summary>
+    /// Distance from ending cell node
+    /// </summary>
+    public int hCost;
+    
+    /// <summary>
+    /// Sum of g & h cost
+    /// </summary>
+    public int fCost { get { return gCost + hCost; } }
+
+    #endregion Pathfinding
 }
