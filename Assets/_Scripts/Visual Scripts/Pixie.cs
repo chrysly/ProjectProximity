@@ -29,7 +29,6 @@ public class Pixie : MonoBehaviour {
 
     public void ConnectPixie(Pixie target) {
         _lineDisplay.gameObject.SetActive(true);
-        _lineDisplay.a
     }
 
     public void DisconnectPixie() {
