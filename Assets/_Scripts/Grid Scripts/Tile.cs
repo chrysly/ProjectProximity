@@ -26,7 +26,6 @@ public class Tile : MonoBehaviour
             for (int y = startY; y <= endY; y++) {
                 if (Mathf.Abs(x - x) + Mathf.Abs(y - y) <= range) {
                     tilesInRange.Add(grid[x, y]);
-                    Debug.Log("added tile");
                 }
             }
         }
@@ -50,6 +49,8 @@ public class Tile : MonoBehaviour
     /// Sum of g & h cost
     /// </summary>
     public int fCost { get { return gCost + hCost; } }
+
+    public Tile parent;
 
     #endregion Pathfinding
 }

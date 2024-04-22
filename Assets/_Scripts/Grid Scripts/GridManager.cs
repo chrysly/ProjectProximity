@@ -82,7 +82,6 @@ public class GridManager : MonoBehaviour {
     }
 
     private void PlaceUnits() {
-        Debug.Log("i have been called");
         List<Actor> allies = gameLogic.GetUnits(0);
         List<Actor> enemies = gameLogic.GetUnits(1);
 

@@ -11,23 +11,26 @@ public class GameLogic : MonoBehaviour
     private int numUnitsMoved = 0;
     private Actor selectedUnit;
 
-    private void AllyTurnStart() {
+    public void AllyTurnStart() {
         numUnitsMoved = 0;
         foreach (Actor a in allies) {
             a.hasMoved = false;
         }
     }
 
-    private void AllyTurnLoop() {
-
+    public void AllyTurnLoop() {
         if (Input.GetMouseButtonDown(0) && selectedUnit == null) {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
-
+                Debug.Log("bop");
+                Actor unit = hit.collider.GetComponent<Actor>();
+                if (unit == null) {
+                    selectedUnit = unit;
+                    Debug.Log("unit selected: " + unit.name);
+                }
             }
-
-        } else {
+        } else if (Input.GetMouseButtonDown(0) && selectedUnit != null) {
 
         }
         // move units and once all units have been moved end turn
