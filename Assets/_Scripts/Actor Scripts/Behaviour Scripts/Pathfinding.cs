@@ -12,6 +12,7 @@ public class Pathfinding
         int distanceX = Mathf.Abs(tileA.x - tileB.x);
         int distanceY = Mathf.Abs(tileA.y - tileB.y);
 
-        if (distanceX > distanceY) return
+        if (distanceX > distanceY) return 1;
+        return 2;
     }
 }
