@@ -399,6 +399,7 @@ MonoBehaviour:
   allies:
   - {fileID: 4145797297039429862, guid: 9765e83ebda1655458a6248f41d29da4, type: 3}
   enemies: []
+  cam: {fileID: 318768270}
 --- !u!1 &1506009443
 GameObject:
   m_ObjectHideFlags: 0

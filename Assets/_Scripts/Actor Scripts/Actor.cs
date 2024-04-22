@@ -35,7 +35,6 @@ public class Actor : MonoBehaviour {
     // when the unit is hovered over show the available tiles it can go to
     void OnMouseOver() {
         this.GetComponent<SpriteRenderer>().color = Color.gray;
-        Debug.Log(_currMoveRange.Count);
         _mouseManager.HighlightTiles(_currMoveRange, _currAttackRange);
     }
 
