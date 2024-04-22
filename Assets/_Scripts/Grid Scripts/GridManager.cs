@@ -12,6 +12,8 @@ public class GridManager : MonoBehaviour {
     private void Awake() {
         if (_instance != null) {  Destroy(this.gameObject); }
         else { _instance = this; }
+
+        grid = Transpose(Inputgrid);
     }
     #endregion Singleton
 
@@ -28,10 +30,10 @@ public class GridManager : MonoBehaviour {
 
     private int[,] grid;
 
-    void Start() {
-        grid = Transpose(Inputgrid);
-        GenerateGrid();
-    }
+    //void Start() {
+    //    Debug.Log("start grid manager");
+    //    grid = Transpose(Inputgrid);
+    //}
 
     // helper to transpose input grid
     private int[,] Transpose(int[,] array) {
@@ -50,7 +52,7 @@ public class GridManager : MonoBehaviour {
     }
 
     // generates a grid of tiles populated by class Tile
-    private void GenerateGrid() {
+    public void GenerateGrid() {
         for (int x = 0; x < grid.GetLength(0); x++) {
             for (int y = 0; y < grid.GetLength(1); y++) {
                 switch (grid[x, y]) {
