@@ -94,7 +94,7 @@ public class MouseManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null) {
                 Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile != null) { // and it's either a valid attack or move tile
+                if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(_currTile)) {
                     _targetTile = tile;
                     _currState = mouseStates.MoveUnit;
                 }

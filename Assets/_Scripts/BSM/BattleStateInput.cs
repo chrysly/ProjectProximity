@@ -14,6 +14,10 @@ public class BattleStateInput : StateInput
     public List<Actor> aliveAllies;
     public List<Actor> aliveEnemies;
 
+    public BattleStateMachine.BattleState lastRefState;
+
+    public int AnimationDelay;
+
     private int turnNum = 0;
     #endregion
 

@@ -27,7 +27,7 @@ public class AllyTurnHandler : MonoBehaviour
     /// <summary>
     /// runs in the ally turn state 
     /// </summary>
-    private void AllyTurnUpdate() {  }
+    public void AllyTurnUpdate() {  }
 
     /// <summary>
     /// listens for an event from mouse manager and tracks how many units have moved
