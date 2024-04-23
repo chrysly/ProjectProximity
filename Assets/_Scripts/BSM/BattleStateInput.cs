@@ -9,6 +9,11 @@ public class BattleStateInput : StateInput
     public List<Actor> allies;
     public List<Actor> enemies;
 
+    public List<Actor> aliveAllies;
+    public List<Actor> aliveEnemies;
+
     private int turnNum = 0;
     #endregion
+
+    // add methods here
 }
