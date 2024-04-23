@@ -48,10 +48,6 @@ public partial class
         }
     }
 
-    private void AllyTurnEnd() {
-
-    }
-
     public void EnterAnimateState() {
         Transition<AnimateState>();
     }
