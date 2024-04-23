@@ -68,11 +68,15 @@ public class GridManager : MonoBehaviour {
                         var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile0.name = tileTypes[0].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile0;
+                        spawnedTile0.x = x;
+                        spawnedTile0.y = y;
                         break;
                     case 1:
                         var spawnedTile1 = Instantiate(tileTypes[1], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile1.name = tileTypes[1].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile1;
+                        spawnedTile1.x = x;
+                        spawnedTile1.y = y;
                         break;
                     default:
                         Debug.Log("yeah something fucked up");

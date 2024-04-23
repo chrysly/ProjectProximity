@@ -60,7 +60,7 @@ public class Pathfinding {
                 return TracePath(start, target);
             }
 
-            foreach (Tile neighbour in currTile.getTilesInRange(1, grid)) {
+            foreach (Tile neighbour in currTile.GetAdjacentTiles()) {
                 if (!neighbour.Data().isWalkable || closedSet.Contains(neighbour)) continue;
                 float costToNeighbour = currTile.gCost + CalculateDistance(currTile, neighbour);
                 if (costToNeighbour < neighbour.gCost || !openSet.Contains(neighbour)) {

@@ -27,11 +27,14 @@ public class GridVisualizer : MonoBehaviour {
         _targetTile = target;
         Pathfinding pathfinder = new Pathfinding();
         _path = pathfinder.CalculatePath(source, target, GridManager.Instance.GetGrid());
-        // foreach (Tile tile in _path) {
-        //     if (_targetTile == tile) continue;
-        //     tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
-        //     tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
-        // }
+        foreach (Tile tile in _path) {
+            if (_targetTile == tile) continue;
+            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
+            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+        }
+        
+        _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", new Color(0.8f, 0.6f, 0.2f));
+        _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
         
         _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
         _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
