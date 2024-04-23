@@ -20,13 +20,17 @@ public partial class
 
         // game manager update state event
         GameManager.OnStateTransition += ChangeGameState;
+        ActorHandler.OnUnitDefeated += UnitDefeated;
+        
     }
 
     protected override void SetInitialState() {
         Transition<BattleStart>();
     }
 
-    // change the current state
+    /// <summary>
+    /// gets info from game manager to change the game state
+    /// </summary>
     private void ChangeGameState(GameManager.GameState nextState) {
         switch (nextState) {
             case GameState.Menu:
@@ -41,6 +45,26 @@ public partial class
                 break;
             default:
                 break;
+        }
+    }
+
+    /// <summary>
+    /// when ally turn ends switch to enemy turn
+    /// </summary>
+    private void AllyTurnEnd() {
+
+    }
+
+
+
+    /// <summary>
+    /// if a unit is defeated update the battle state input
+    /// </summary>
+    private void UnitDefeated(Actor a) {
+        if (a.GetType() == typeof(AllyActor)) {
+            CurrInput.aliveAllies.Remove(a);
+        } else if (a.GetType() == typeof(EnemyActor)) {
+            CurrInput.aliveEnemies.Remove(a);
         }
     }
 
