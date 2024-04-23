@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     public GameObject unitOnTile;
     public int x;
     public int y;
+
+    public Actor occupiedActor;
     // maybe var here for coordinates actually
 
     private void Awake() {
