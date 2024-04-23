@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
+    [SerializeField] private ActorHandler actorHandler;
+    
     #region Singleton
     private static GridManager _instance;
 
@@ -85,11 +87,12 @@ public class GridManager : MonoBehaviour {
     /// places units on the board (hard coded bc fml)
     /// </summary>
     private void PlaceUnits() {
-        List<Actor> allies = gameLogic.GetUnits(0);
-        List<Actor> enemies = gameLogic.GetUnits(1);
+        List<AllyActor> allies = actorHandler.allyActors;
+        List<EnemyActor> enemies = actorHandler.enemyActors;
 
         // hard coded bc fml
         var newUnit = Instantiate(allies[0], new Vector3(0,0), Quaternion.identity);
         newUnit.OnTurnStart(tileGrid[0, 0]);
+        tileGrid[0, 0].occupiedActor = newUnit;
     }
 }

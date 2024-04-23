@@ -11,8 +11,8 @@ public class BattleStateInput : StateInput
     public List<Actor> allies;
     public List<Actor> enemies;
 
-    public List<Actor> aliveAllies;
-    public List<Actor> aliveEnemies;
+    public List<AllyActor> aliveAllies;
+    public List<EnemyActor> aliveEnemies;
 
     public BattleStateMachine.BattleState lastRefState;
 

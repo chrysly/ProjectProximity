@@ -10,7 +10,6 @@ public class Tile : MonoBehaviour
     [SerializeField] TileData tileData;
     public TileData Data() { return tileData; }
     
-    public GameObject unitOnTile;
     public int x;
     public int y;
 
@@ -18,7 +17,6 @@ public class Tile : MonoBehaviour
     // maybe var here for coordinates actually
 
     private void Awake() {
-        InitDisplay();
     }
 
 
@@ -47,52 +45,19 @@ public class Tile : MonoBehaviour
     /// <summary>
     /// Distance from starting node
     /// </summary>
-    public int gCost;
-    
+    public float gCost;
+
     /// <summary>
     /// Distance from ending cell node
     /// </summary>
-    public int hCost;
-    
+    public float hCost;
+
     /// <summary>
     /// Sum of g & h cost
     /// </summary>
-    public int fCost { get { return gCost + hCost; } }
+    public float fCost { get { return gCost + hCost; } }
 
     public Tile parent;
 
     #endregion Pathfinding
-    
-    #region Select Operations
-
-    private Selectable _publisher;
-    private SpriteRenderer _spriteRenderer;
-    private Color _originalColor;
-
-    private void InitDisplay() {
-        _publisher = transform.GetComponent<Selectable>();
-        _publisher.OnClick += SelectTile;
-        _publisher.OnEnter += EnterTile;
-        _publisher.OnExit += DeselectTile;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _originalColor = _spriteRenderer.color;
-    }
-
-    private void SelectTile() {
-        _spriteRenderer.color = Color.cyan;
-    }
-
-    private void EnterTile() {
-        _spriteRenderer.color = Color.yellow;
-        Pathfinding pathfinding = new Pathfinding();
-        List<Tile> path =
-            pathfinding.CalculatePath(GridManager.Instance.GetGrid()[0, 0], this, GridManager.Instance.GetGrid());
-        
-    }
-
-    private void DeselectTile() {
-        _spriteRenderer.color = _originalColor;
-    }
-    
-    #endregion Select Operations
 }

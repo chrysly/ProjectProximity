@@ -8,6 +8,9 @@ using UnityEngine;
 public class ActorHandler : MonoBehaviour
 {
     private MouseManager mouseManager;
+
+    public List<AllyActor> allyActors;
+    public List<EnemyActor> enemyActors;
     
     #region Events
     public delegate void UnitDefeated(Actor actor);

@@ -58,9 +58,9 @@ public partial class
 
     private void UnitDefeated(Actor a) {
         if (a.GetType() == typeof(AllyActor)) {
-            CurrInput.aliveAllies.Remove(a);
+            CurrInput.aliveAllies.Remove((AllyActor) a);
         } else if (a.GetType() == typeof(EnemyActor)) {
-            CurrInput.aliveEnemies.Remove(a);
+            CurrInput.aliveEnemies.Remove((EnemyActor) a);
         }
     }
 
