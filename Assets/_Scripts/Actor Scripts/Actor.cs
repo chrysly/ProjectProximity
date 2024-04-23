@@ -44,4 +44,8 @@ public class Actor : MonoBehaviour {
         }
         return false;
     }
+
+    public int[] GetSpawnCoordinates() {
+        return new [] {data.x, data.y, data.z};
+    }
 }

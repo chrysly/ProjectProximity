@@ -18,11 +18,12 @@ public class GridVisualizer : MonoBehaviour {
     private void Awake() {
         _cursorManager = FindObjectOfType<MouseManager>();
         _cursorManager.OnUnitHovered += SelectTile;
+        _cursorManager.OnMovedUnit += ClearTiles;
     }
 
     private void SelectTile(Tile source, Tile target) {
         if (source == _activeTile && target == _targetTile) return;
-        ClearTiles();
+        ClearTiles(source, target);
         _activeTile = source;
         _targetTile = target;
         Pathfinding pathfinder = new Pathfinding();
@@ -40,7 +41,10 @@ public class GridVisualizer : MonoBehaviour {
         _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
     }
 
-    private void ClearTiles() {
+    private void ClearTiles(Tile start, Tile target) {
+        if (_activeTile != null)
+            _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+        
         if (_targetTile != null)
             _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
 

@@ -94,9 +94,13 @@ public class GridManager : MonoBehaviour {
         List<AllyActor> allies = actorHandler.allyActors;
         List<EnemyActor> enemies = actorHandler.enemyActors;
 
-        // hard coded bc fml
-        var newUnit = Instantiate(allies[0], new Vector3(0,0), Quaternion.identity);
-        newUnit.OnTurnStart(tileGrid[0, 0]);
-        tileGrid[0, 0].occupiedActor = newUnit;
+
+        foreach (Actor unit in allies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+        }
     }
 }
