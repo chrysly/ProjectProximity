@@ -90,6 +90,7 @@ public class MouseManager : MonoBehaviour {
                 Debug.Log("click success");
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
+                    Debug.Log(tile.occupiedActor);
                     if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
                         if (!tile.occupiedActor.hasMoved) {
                             Debug.Log("Unit selected");
