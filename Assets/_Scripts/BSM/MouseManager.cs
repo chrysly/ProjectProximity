@@ -5,17 +5,23 @@ using UnityEngine;
 /// <summary>
 /// Handles the player mouse clicks. is a mini internal state machine
 /// </summary>
-public class MouseManager : MonoBehaviour
-{
+public class MouseManager : MonoBehaviour {
+
+    public static MouseManager Instance;
+    
     #region Events
     public delegate void UnitSelected(Tile currTile);
-    public static event UnitSelected OnUnitSelected;
+    public event UnitSelected OnUnitSelected;
 
     public delegate void UnitDeselected(Tile currTile);
-    public static event UnitDeselected OnUnitDeselected;
+    public event UnitDeselected OnUnitDeselected;
 
     public delegate void MovedUnit(Tile currTile, Tile targetTile);
-    public static event MovedUnit OnMovedUnit;
+    public event MovedUnit OnMovedUnit;
+
+    public delegate void UnitHovered(Tile currTile, Tile targetTile);
+
+    public event UnitHovered OnUnitHovered;
     #endregion
 
     public enum mouseStates {
@@ -50,6 +56,7 @@ public class MouseManager : MonoBehaviour
                 break;
             case (mouseStates.UnitSelected):
                 UnitSelectedState();
+                OnEnter();
                 break;
             case (mouseStates.MoveUnit):
                 MoveUnitState();
@@ -103,6 +110,18 @@ public class MouseManager : MonoBehaviour
             _currTile = null;
             _currState = mouseStates.Idle;
             OnUnitDeselected?.Invoke(_currTile);
+        }
+    }
+
+    private void OnEnter() {
+        if (_currState == mouseStates.UnitSelected) {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null) {
+                Tile tile = hit.collider.GetComponent<Tile>();
+                if (tile != null && tile.Data().isWalkable) {
+                    OnUnitHovered?.Invoke(_currTile, tile);
+                }
+            }
         }
     }
 
