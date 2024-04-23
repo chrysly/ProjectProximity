@@ -112,7 +112,11 @@ public class MouseManager : MonoBehaviour {
             if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
-                    if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(_currTile)) {
+                    if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(tile)) {
+                        _targetTile = tile;
+                        _currState = mouseStates.MoveUnit;
+                    } else if (tile != null && _currTile.occupiedActor._currAttackRange.Contains(tile) &&
+                               tile.occupiedActor != null) {
                         _targetTile = tile;
                         _currState = mouseStates.MoveUnit;
                     }
@@ -135,7 +139,9 @@ public class MouseManager : MonoBehaviour {
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile != null && tile.Data().isWalkable) {
-                        OnUnitHovered?.Invoke(_currTile, tile);
+                        if (_currTile.occupiedActor._currMoveRange.Contains(tile)) {
+                            OnUnitHovered?.Invoke(_currTile, tile);
+                        }
                     }
                 }
             }
@@ -147,15 +153,6 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void MoveUnitState() {
         OnMovedUnit?.Invoke(_currTile, _targetTile);
-
-        // wait / do smthing (?)
-        StartCoroutine(ReturnToIdle());
-    }
-
-    private IEnumerator ReturnToIdle() {
-        OnUnitDeselected?.Invoke(_currTile);
-        yield return new WaitForSeconds(BattleStateMachine.Instance.CurrInput.AnimationDelay);
-        Debug.Log(_currTile);
         Actor actor = _currTile.occupiedActor;
         actor.hasMoved = true;
         _currTile.occupiedActor = null;
@@ -164,6 +161,15 @@ public class MouseManager : MonoBehaviour {
         _currTile = null;
         _targetTile = null;
         _currState = mouseStates.Idle;
-        
+
+        // wait / do smthing (?)
+        //StartCoroutine(ReturnToIdle());
     }
+
+    //dumb coroutine stuff
+    // private IEnumerator ReturnToIdle() {
+    //     OnUnitDeselected?.Invoke(_currTile);
+    //     yield return new WaitForSeconds(BattleStateMachine.Instance.CurrInput.AnimationDelay);
+    //     
+    // }
 }
