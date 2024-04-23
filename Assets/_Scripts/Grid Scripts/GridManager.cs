@@ -81,6 +81,9 @@ public class GridManager : MonoBehaviour {
         PlaceUnits();   // spawn units on field
     }
 
+    /// <summary>
+    /// places units on the board (hard coded bc fml)
+    /// </summary>
     private void PlaceUnits() {
         List<Actor> allies = gameLogic.GetUnits(0);
         List<Actor> enemies = gameLogic.GetUnits(1);
