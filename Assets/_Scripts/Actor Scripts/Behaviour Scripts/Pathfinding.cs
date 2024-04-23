@@ -4,19 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Debug = UnityEngine.Debug;
 
-public class Pathfinding
-{
+public class Pathfinding {
     /**
      * A* pathfinding implementation for actors.
      */
 
-    private int CalculateDistance(Tile tileA, Tile tileB) {
-        int distanceX = Mathf.Abs(tileA.x - tileB.x);
-        int distanceY = Mathf.Abs(tileA.y - tileB.y);
-
-        if (distanceX > distanceY) return distanceY * (distanceX - distanceY);
-        return distanceX * (distanceY - distanceX);
+    private float CalculateDistance(Tile tileA, Tile tileB) {
+        return Vector2.Distance(new Vector2(tileA.x, tileA.y), new Vector2(tileB.x, tileB.y));
     }
 
     private List<Tile> TracePath(Tile start, Tile target) {
@@ -49,7 +45,7 @@ public class Pathfinding
             Tile currTile = openSet[0];
             for (int i = 1; i < openSet.Count; i++) {
                 if (openSet[i].fCost < currTile.fCost ||
-                    openSet[i].fCost == currTile.fCost &&
+                    Mathf.Approximately(openSet[i].fCost, currTile.fCost) &&
                     openSet[i].hCost < currTile.hCost) {
 
                     currTile = openSet[i];
@@ -60,12 +56,13 @@ public class Pathfinding
             closedSet.Add(currTile);
 
             if (currTile == target) {
+                Debug.Log(TracePath(start, target).Count);
                 return TracePath(start, target);
             }
 
-            foreach (Tile neighbour in currTile.getTilesInRange(1, grid)) {
+            foreach (Tile neighbour in currTile.GetAdjacentTiles()) {
                 if (!neighbour.Data().isWalkable || closedSet.Contains(neighbour)) continue;
-                int costToNeighbour = currTile.gCost + CalculateDistance(currTile, neighbour);
+                float costToNeighbour = currTile.gCost + CalculateDistance(currTile, neighbour);
                 if (costToNeighbour < neighbour.gCost || !openSet.Contains(neighbour)) {
                     neighbour.gCost = costToNeighbour;
                     neighbour.hCost = CalculateDistance(neighbour, target);

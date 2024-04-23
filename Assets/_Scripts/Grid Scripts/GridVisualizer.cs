@@ -7,10 +7,7 @@ using UnityEngine;
 
 public class GridVisualizer : MonoBehaviour {
     
-    private static GridVisualizer _instance;
-    public static GridVisualizer Instance { get { return _instance; } }
-    
-    [SerializeField] private MouseManager cursorManager;
+    private MouseManager _cursorManager;
 
     [SerializeField] private int materialIndex = 3;
 
@@ -19,33 +16,47 @@ public class GridVisualizer : MonoBehaviour {
     private List<Tile> _path;
 
     private void Awake() {
-        cursorManager.OnUnitHovered += SelectTile;
+        _cursorManager = FindObjectOfType<MouseManager>();
+        _cursorManager.OnUnitHovered += SelectTile;
+        _cursorManager.OnMovedUnit += ClearTiles;
     }
 
     private void SelectTile(Tile source, Tile target) {
         if (source == _activeTile && target == _targetTile) return;
-        ClearTiles();
+        ClearTiles(source, target);
         _activeTile = source;
         _targetTile = target;
         Pathfinding pathfinder = new Pathfinding();
         _path = pathfinder.CalculatePath(source, target, GridManager.Instance.GetGrid());
         foreach (Tile tile in _path) {
+            if (_targetTile == tile) continue;
             tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
             tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
         }
+        
+        _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", new Color(0.8f, 0.6f, 0.2f));
+        _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
         
         _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
         _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
     }
 
-    private void ClearTiles() {
-        _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
-        foreach (Tile tile in _path) {
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+    private void ClearTiles(Tile start, Tile target) {
+        if (_activeTile != null)
+            _activeTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+        
+        if (_targetTile != null)
+            _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+
+        if (_path != null && _path.Count > 0) {
+            foreach (Tile tile in _path) {
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+            }
         }
     }
 
     private void DeselectTile(Tile source, Tile target) {
         _targetTile = source;
+        _path = new List<Tile>();
     }
 }

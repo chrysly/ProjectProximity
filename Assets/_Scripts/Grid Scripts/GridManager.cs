@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
+    [SerializeField] private ActorHandler actorHandler;
+    
     #region Singleton
     private static GridManager _instance;
 
@@ -66,11 +68,15 @@ public class GridManager : MonoBehaviour {
                         var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile0.name = tileTypes[0].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile0;
+                        spawnedTile0.x = x;
+                        spawnedTile0.y = y;
                         break;
                     case 1:
                         var spawnedTile1 = Instantiate(tileTypes[1], new Vector3(x, -y), Quaternion.identity);
                         spawnedTile1.name = tileTypes[1].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile1;
+                        spawnedTile1.x = x;
+                        spawnedTile1.y = y;
                         break;
                     default:
                         Debug.Log("yeah something fucked up");
@@ -85,11 +91,16 @@ public class GridManager : MonoBehaviour {
     /// places units on the board (hard coded bc fml)
     /// </summary>
     private void PlaceUnits() {
-        List<Actor> allies = gameLogic.GetUnits(0);
-        List<Actor> enemies = gameLogic.GetUnits(1);
+        List<AllyActor> allies = actorHandler.allyActors;
+        List<EnemyActor> enemies = actorHandler.enemyActors;
 
-        // hard coded bc fml
-        var newUnit = Instantiate(allies[0], new Vector3(0,0), Quaternion.identity);
-        newUnit.OnTurnStart(tileGrid[0, 0]);
+
+        foreach (Actor unit in allies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+        }
     }
 }
