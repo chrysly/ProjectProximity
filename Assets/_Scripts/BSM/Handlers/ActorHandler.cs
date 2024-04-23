@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class ActorHandler : MonoBehaviour
 {
+    private MouseManager mouseManager;
+    
     #region Events
     public delegate void UnitDefeated(Actor actor);
     public event UnitDefeated OnUnitDefeated;
@@ -15,8 +17,9 @@ public class ActorHandler : MonoBehaviour
     public event ToAnimateState OnToAnimateState;
     #endregion
 
-    private void Start() {
-        MouseManager.Instance.OnMovedUnit += HandleInteraction;  // might be wrong
+    private void Awake() {
+        mouseManager = FindObjectOfType<MouseManager>();
+        mouseManager.OnMovedUnit += HandleInteraction;  // might be wrong
     }
 
     /// <summary>

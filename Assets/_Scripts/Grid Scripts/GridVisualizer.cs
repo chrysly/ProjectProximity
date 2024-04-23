@@ -7,10 +7,7 @@ using UnityEngine;
 
 public class GridVisualizer : MonoBehaviour {
     
-    private static GridVisualizer _instance;
-    public static GridVisualizer Instance { get { return _instance; } }
-    
-    [SerializeField] private MouseManager cursorManager;
+    private MouseManager _cursorManager;
 
     [SerializeField] private int materialIndex = 3;
 
@@ -19,7 +16,8 @@ public class GridVisualizer : MonoBehaviour {
     private List<Tile> _path;
 
     private void Awake() {
-        cursorManager.OnUnitHovered += SelectTile;
+        _cursorManager = FindObjectOfType<MouseManager>();
+        _cursorManager.OnUnitHovered += SelectTile;
     }
 
     private void SelectTile(Tile source, Tile target) {
