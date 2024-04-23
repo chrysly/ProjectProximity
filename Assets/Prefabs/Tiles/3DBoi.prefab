@@ -50,6 +50,7 @@ MonoBehaviour:
   unitOnTile: {fileID: 0}
   x: 0
   y: 0
+  occupiedActor: {fileID: 0}
   gCost: 0
   hCost: 0
   parent: {fileID: 0}
@@ -76,6 +77,7 @@ MeshRenderer:
   - {fileID: -7609257659404453926, guid: cde8f67a5df28ba41bccd0dd54d5030a, type: 3}
   - {fileID: 165812605478736863, guid: cde8f67a5df28ba41bccd0dd54d5030a, type: 3}
   - {fileID: 0}
+  - {fileID: 2100000, guid: 91bab3ade8566e44d9d47f7bc41a8806, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

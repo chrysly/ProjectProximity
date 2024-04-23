@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +36,10 @@ public class MouseManager : MonoBehaviour {
 
     private Tile _currTile;
     private Tile _targetTile;
+
+    private void Start() {
+        _currState = mouseStates.Disabled;
+    }
 
     /// <summary>
     /// for other classes to call
