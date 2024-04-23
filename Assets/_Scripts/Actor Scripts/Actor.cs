@@ -31,4 +31,17 @@ public class Actor : MonoBehaviour {
     public void MoveActor(Vector2 position) {
         //Conditional to check if position is within valid range
     }
+
+    /// <summary>
+    /// Depletes health from actor. If target actor health is <= 0 returns FALSE.
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <returns></returns>
+    public bool DepleteHealth(float damage) {
+        _health -= damage;
+        if (_health <= 0) {
+            return true;
+        }
+        return false;
+    }
 }

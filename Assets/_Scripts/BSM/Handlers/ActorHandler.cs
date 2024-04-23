@@ -16,7 +16,7 @@ public class ActorHandler : MonoBehaviour
     #endregion
 
     private void Start() {
-        MouseManager.OnMovedUnit += HandleInteraction;  // might be wrong
+        MouseManager.Instance.OnMovedUnit += HandleInteraction;  // might be wrong
     }
 
     /// <summary>
