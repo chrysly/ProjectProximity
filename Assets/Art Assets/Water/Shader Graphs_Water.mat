@@ -54,16 +54,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Foam_1_Level: 9.49
-    - _Foam_2_Level: 14.46
-    - _Foam_3_Level: 5.64
+    - _Foam_1_Level: 6.5
+    - _Foam_2_Level: 15.07
+    - _Foam_3_Level: 62.7
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0.11
     - _Tiling: 0.3
     m_Colors:
-    - _Water_Color: {r: 0.06390589, g: 0.17665559, b: 0.21960784, a: 0}
-    - _Water_Color_2: {r: 0.174243, g: 0.5823051, b: 0.72300005, a: 0}
+    - _Water_Color: {r: 0.16963202, g: 0.47120002, b: 0.589, a: 0}
+    - _Water_Color_2: {r: 0.16028047, g: 0.5424878, b: 0.674, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1549548017806992334
 MonoBehaviour:
