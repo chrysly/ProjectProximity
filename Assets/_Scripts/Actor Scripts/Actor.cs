@@ -8,8 +8,8 @@ public class Actor : MonoBehaviour {
     private Tile _currTile;
     public bool hasMoved;
 
-    private HashSet<Tile> _currMoveRange = new();
-    private HashSet<Tile> _currAttackRange = new();
+    public HashSet<Tile> _currMoveRange = new();
+    public HashSet<Tile> _currAttackRange = new();
 
     private MouseManager _mouseManager;
 
