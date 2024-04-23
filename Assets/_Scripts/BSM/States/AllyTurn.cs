@@ -6,13 +6,15 @@ public partial class BattleStateMachine {
     public class AllyTurn : BattleState {
 
         public override void Enter(BattleStateInput i) {
+            base.Enter(i);
             Debug.Log("ally turn");
-            MySM.gameLogic.AllyTurnStart();
+            MySM.CurrInput.lastRefState = this;
+            MySM.allyTurnHandler.AllyTurnStart();
         }
 
         public override void Update() {
             base.Update();
-            MySM.gameLogic.AllyTurnLoop();
+            MySM.allyTurnHandler.AllyTurnUpdate();
         }
 
         public override void Exit(BattleStateInput i) {

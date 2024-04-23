@@ -7,6 +7,8 @@ public partial class
     BattleStateMachine : StateMachine<BattleStateMachine, BattleStateMachine.BattleState, BattleStateInput> {
 
     [SerializeField] private GameLogic gameLogic;
+    [SerializeField] private AllyTurnHandler allyTurnHandler;
+    [SerializeField] private ActorHandler actorHandler;
 
     #region Singleton
     private static BattleStateMachine instance;
@@ -20,7 +22,8 @@ public partial class
 
         // game manager update state event
         GameManager.OnStateTransition += ChangeGameState;
-        ActorHandler.OnUnitDefeated += UnitDefeated;
+        actorHandler.OnUnitDefeated += UnitDefeated;
+        actorHandler.OnToAnimateState += EnterAnimateState;
         
     }
 
@@ -28,9 +31,6 @@ public partial class
         Transition<BattleStart>();
     }
 
-    /// <summary>
-    /// gets info from game manager to change the game state
-    /// </summary>
     private void ChangeGameState(GameManager.GameState nextState) {
         switch (nextState) {
             case GameState.Menu:
@@ -48,18 +48,14 @@ public partial class
         }
     }
 
-    /// <summary>
-    /// when ally turn ends switch to enemy turn
-    /// </summary>
     private void AllyTurnEnd() {
 
     }
 
+    public void EnterAnimateState() {
+        Transition<AnimateState>();
+    }
 
-
-    /// <summary>
-    /// if a unit is defeated update the battle state input
-    /// </summary>
     private void UnitDefeated(Actor a) {
         if (a.GetType() == typeof(AllyActor)) {
             CurrInput.aliveAllies.Remove(a);
@@ -68,12 +64,12 @@ public partial class
         }
     }
 
-    // method that checks for state
-    // send data wahoo
-    // event from BSM to GM whther it wins
+    protected bool CallAnimDelay() {
+        StartCoroutine(WaitForAnim(CurrInput.AnimationDelay));
+        return true;
+    }
 
-    // selection state
-    // animation state
-    // state to check for input
-    // another state as buffer
+    IEnumerator WaitForAnim(int sec) {
+        yield return new WaitForSeconds(sec);
+    }
 }

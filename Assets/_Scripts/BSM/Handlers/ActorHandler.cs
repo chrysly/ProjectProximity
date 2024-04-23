@@ -9,7 +9,10 @@ public class ActorHandler : MonoBehaviour
 {
     #region Events
     public delegate void UnitDefeated(Actor actor);
-    public static event UnitDefeated OnUnitDefeated;
+    public event UnitDefeated OnUnitDefeated;
+
+    public delegate void ToAnimateState();
+    public event ToAnimateState OnToAnimateState;
     #endregion
 
     private void Start() {
@@ -20,6 +23,9 @@ public class ActorHandler : MonoBehaviour
     /// handles the interaction logic from currTile to target tile (checks if it should move or attack)
     /// </summary>
     private void HandleInteraction(Tile currTile, Tile targetTile) {
+        OnToAnimateState?.Invoke();
+
+        //make seur you differentiate between attack range vs move range bc edge case
         // set the curr actor to hasMoved
         if (targetTile.occupiedActor != null) { // this is kinda a redundant check i think?
             UnitAttacks(currTile.occupiedActor, targetTile.occupiedActor);
