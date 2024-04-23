@@ -88,8 +88,9 @@ public class MouseManager : MonoBehaviour {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
                         if (!tile.occupiedActor.hasMoved) {
-                            Debug.Log("Unit: " + " selected");
+                            Debug.Log("Unit selected");
                             _currTile = tile;
+                            Debug.Log("currTile is: " + _currTile);
                             _currState = mouseStates.UnitSelected;
                         }
                     }
@@ -103,6 +104,8 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void UnitSelectedState() {
         OnUnitSelected?.Invoke(_currTile);
+
+        Debug.Log(_currTile);
 
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
@@ -122,6 +125,7 @@ public class MouseManager : MonoBehaviour {
             //This would probably have to happen during MoveUnit state, by the time the player clicks left click they've already moved on to the next state before
             //they can cancel - Chris
         } else if (Input.GetMouseButtonDown(1)) {   // if right click, then deselct unit
+            Debug.Log("why called");
             _currTile = null;
             _currState = mouseStates.Idle;
             OnUnitDeselected?.Invoke(_currTile);
