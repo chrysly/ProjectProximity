@@ -66,5 +66,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c952ad5a9e9ee894daf9f72472c316cf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6011005406812829209}
   m_SourcePrefab: {fileID: 100100000, guid: c952ad5a9e9ee894daf9f72472c316cf, type: 3}
+--- !u!1 &2691329900349236165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c952ad5a9e9ee894daf9f72472c316cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2997408992956325524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6011005406812829209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691329900349236165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4234e8e9a38626f4c83e5e0f5b069229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileData: {fileID: 11400000, guid: 4bed8d84eee73da4a86d9b4944464450, type: 2}
+  x: 0
+  y: 0
+  occupiedActor: {fileID: 0}
+  gCost: 0
+  hCost: 0
+  parent: {fileID: 0}
