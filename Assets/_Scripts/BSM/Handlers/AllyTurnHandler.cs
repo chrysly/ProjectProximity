@@ -49,7 +49,6 @@ public class AllyTurnHandler : MonoBehaviour {
     /// send message to bsm to transition states
     /// </summary>
     private void EndAllyTurn() {
-        // send smthing to bsm which will swithc it to the enemy turn
-        // make an event for this
+        BattleStateMachine.Instance.Transition<BattleStateMachine.EnemyTurn>();
     }
 }

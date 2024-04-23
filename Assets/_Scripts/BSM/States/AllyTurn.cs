@@ -7,7 +7,7 @@ public partial class BattleStateMachine {
 
         public override void Enter(BattleStateInput i) {
             base.Enter(i);
-            Debug.Log("ally turn");
+            Debug.Log("ally turn start");
             MySM.CurrInput.lastRefState = this;
             MySM.allyTurnHandler.AllyTurnStart();
         }
