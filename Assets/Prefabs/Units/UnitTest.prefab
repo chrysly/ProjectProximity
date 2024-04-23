@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4ebb444a8f607ab46bdce12287a41715, type: 2}
+  hasMoved: 0
 --- !u!60 &5564507387501466003
 PolygonCollider2D:
   m_ObjectHideFlags: 0

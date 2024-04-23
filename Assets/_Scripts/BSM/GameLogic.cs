@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Logic for the actual game loop
+/// </summary>
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private List<Actor> allies = new List<Actor>();
@@ -11,6 +14,9 @@ public class GameLogic : MonoBehaviour
     private int numUnitsMoved = 0;
     private Actor selectedUnit;
 
+    /// <summary>
+    /// Resets ally units at the start of the turn
+    /// </summary>
     public void AllyTurnStart() {
         numUnitsMoved = 0;
         foreach (Actor a in allies) {
@@ -18,19 +24,25 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The ally turn game loop
+    /// </summary>
     public void AllyTurnLoop() {
         if (Input.GetMouseButtonDown(0) && selectedUnit == null) {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
+            RaycastHit2D hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null) {
                 Debug.Log("bop");
                 Actor unit = hit.collider.GetComponent<Actor>();
-                if (unit == null) {
+                if (unit != null) {
                     selectedUnit = unit;
                     Debug.Log("unit selected: " + unit.name);
                 }
             }
         } else if (Input.GetMouseButtonDown(0) && selectedUnit != null) {
+            // if a tile is hit, send it to the move actor (it will check there if its a valid place to move
+            // and if it is move the actor and 
+        } else if (Input.GetMouseButtonDown(1)) {
+            selectedUnit = null;
 
         }
         // move units and once all units have been moved end turn
@@ -39,6 +51,9 @@ public class GameLogic : MonoBehaviour
         // of the tile that was clicked on is in curr_moveRange 
     }
 
+    /// <summary>
+    /// the battle starts when the player presses space
+    /// </summary>
     public bool BattleWait() {
         Debug.Log("please give me space");
         if (Input.GetKeyDown("space")) {
@@ -47,6 +62,9 @@ public class GameLogic : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Get either ally units (0) or enemy units (1)
+    /// </summary>
     public List<Actor> GetUnits(int t) {
         if (t == 0) return allies;
         return enemies;
