@@ -33,7 +33,7 @@ public class GameLogic : MonoBehaviour
             if (hit.collider != null) {
                 Debug.Log("bop");
                 Actor unit = hit.collider.GetComponent<Actor>();
-                if (unit != null) {
+                if (unit != null) { 
                     selectedUnit = unit;
                     Debug.Log("unit selected: " + unit.name);
                 }
@@ -69,4 +69,6 @@ public class GameLogic : MonoBehaviour
         if (t == 0) return allies;
         return enemies;
     }
+
+    // if an actor dies get event from the ActorHandler 
 }
