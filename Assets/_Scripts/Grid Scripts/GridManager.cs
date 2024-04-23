@@ -86,8 +86,8 @@ public class GridManager : MonoBehaviour {
 
     // generates a grid of tiles populated by class Tile
     public void GenerateGrid() {
-        for (int x = 0; x < intGrid.GetLength(0); x++) {
-            for (int y = 0; y < intGrid.GetLength(1); y++) {
+        for (int y = 0; y < intGrid.GetLength(0); y++) {
+            for (int x = 0; x < intGrid.GetLength(1); x++) {
                 switch (intGrid[x, y]) {
                     case 0:
                         var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, 0f, -y), Quaternion.identity);
@@ -192,7 +192,7 @@ public class GridManager : MonoBehaviour {
         foreach (Actor unit in allies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
-            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[2], coords[1]), Quaternion.identity);
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[1]), Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
             Debug.Log("SPAWNED ALLY");
