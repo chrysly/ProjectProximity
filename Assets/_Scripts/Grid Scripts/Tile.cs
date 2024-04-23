@@ -46,16 +46,16 @@ public class Tile : MonoBehaviour
         
         //NORTH
         Tile[,] grid = GridManager.Instance.GetGrid();
-        if (y > 0) adjacentTiles.Add(grid[x, y - 1]);
+        if (y > 0 && grid[x, y - 1].tileData.isWalkable) adjacentTiles.Add(grid[x, y - 1]);
         
         //SOUTH
-        if (y < grid.GetLength(0) - 1) adjacentTiles.Add(grid[x, y + 1]);
+        if (y < grid.GetLength(0) - 1 && grid[x, y + 1].tileData.isWalkable) adjacentTiles.Add(grid[x, y + 1]);
         
         //EAST
-        if (x > 0) adjacentTiles.Add(grid[x - 1, y]);
+        if (x > 0 && grid[x - 1, y].tileData.isWalkable) adjacentTiles.Add(grid[x - 1, y]);
         
         //WEST
-        if (x < grid.GetLength(1) - 1) adjacentTiles.Add(grid[x + 1, y]);
+        if (x < grid.GetLength(1) - 1 && grid[x + 1, y].tileData.isWalkable) adjacentTiles.Add(grid[x + 1, y]);
         
         Debug.Log("Curr Tile: " + x + ", " + y);
         foreach (Tile tile in adjacentTiles) {

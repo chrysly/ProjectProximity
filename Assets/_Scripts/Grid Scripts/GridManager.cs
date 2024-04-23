@@ -189,13 +189,20 @@ public class GridManager : MonoBehaviour {
         List<AllyActor> allies = actorHandler.allyActors;
         List<EnemyActor> enemies = actorHandler.enemyActors;
 
-
-        //foreach (Actor unit in allies) {
-        //    // hard coded bc fml
-        //    int[] coords = unit.GetSpawnCoordinates();
-        //    var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
-        //    newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
-        //    tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
-        //}
+        foreach (Actor unit in allies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+        }
+        
+        foreach (Actor unit in enemies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+        }
     }
 }
