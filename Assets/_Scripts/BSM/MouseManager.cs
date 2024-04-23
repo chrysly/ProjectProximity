@@ -7,8 +7,6 @@ using UnityEngine;
 /// Handles the player mouse clicks. is a mini internal state machine
 /// </summary>
 public class MouseManager : MonoBehaviour {
-
-    public static MouseManager Instance;
     
     #region Events
     public delegate void UnitSelected(Tile currTile);

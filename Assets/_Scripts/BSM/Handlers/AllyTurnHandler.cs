@@ -10,8 +10,8 @@ public class AllyTurnHandler : MonoBehaviour
     private MouseManager mouseManager;
 
     void Start() {
-        MouseManager.Instance.OnMovedUnit += AllyUnitActed;
         mouseManager = FindObjectOfType<MouseManager>();
+        mouseManager.OnMovedUnit += AllyUnitActed;
     }
 
     /// <summary>
