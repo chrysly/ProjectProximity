@@ -36,7 +36,7 @@ public class ActorHandler : MonoBehaviour
 
         //make seur you differentiate between attack range vs move range bc edge case
         // set the curr actor to hasMoved
-        if (targetTile.occupiedActor != null) { // this is kinda a redundant check i think?
+        if (targetTile.occupiedActor != null && targetTile.occupiedActor is EnemyActor) { // this is kinda a redundant check i think?
             UnitAttacks(currTile.occupiedActor, targetTile.occupiedActor);
         }
         else {

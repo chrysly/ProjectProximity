@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 10
   maxHealth: 10
-  attackRange: 3
-  moveRange: 5
+  attackRange: 2
+  moveRange: 3
   x: 1
   y: 0
   z: 0

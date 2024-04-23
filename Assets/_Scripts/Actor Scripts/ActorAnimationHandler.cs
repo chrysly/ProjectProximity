@@ -15,9 +15,16 @@ public class ActorAnimationHandler : MonoBehaviour
 
     private void TranslateActor(Tile source, Tile target) {
         Actor actor = source.occupiedActor;
+        if (target.occupiedActor is AllyActor) return;
+        if (target.occupiedActor is EnemyActor) {
+            StartCoroutine(BumpAction(actor));
+            return;
+        }
+
         Pathfinding pathfinding = new Pathfinding();
         List<Tile> path = pathfinding.CalculatePath(source, target, GridManager.Instance.GetGrid());
         StartCoroutine(TranslateAction(actor, path));
+        
     }
 
     private IEnumerator TranslateAction(Actor actor, List<Tile> path) {
@@ -27,6 +34,14 @@ public class ActorAnimationHandler : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
+        yield return null;
+    }
+
+    private IEnumerator BumpAction(Actor actor) {
+        float delay = 1.8f;
+        Vector3 oldPos = actor.transform.position;
+        actor.transform.DOMove(oldPos + actor.transform.forward, delay / 2)
+            .OnComplete(()=> actor.transform.DOMove(oldPos, delay / 2));
         yield return null;
     }
 }
