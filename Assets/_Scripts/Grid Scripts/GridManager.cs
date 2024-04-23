@@ -90,84 +90,84 @@ public class GridManager : MonoBehaviour {
             for (int y = 0; y < intGrid.GetLength(1); y++) {
                 switch (intGrid[x, y]) {
                     case 0:
-                        var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile0.name = tileTypes[0].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile0;
                         spawnedTile0.x = x;
                         spawnedTile0.y = y;
                         break;
                     case 1:
-                        var spawnedTile1 = Instantiate(tileTypes[1], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile1 = Instantiate(tileTypes[1], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile1.name = tileTypes[1].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile1;
                         spawnedTile1.x = x;
                         spawnedTile1.y = y;
                         break;
                     case 2:
-                        var spawnedTile2 = Instantiate(tileTypes[2], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile2 = Instantiate(tileTypes[2], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile2.name = tileTypes[2].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile2;
                         spawnedTile2.x = x;
                         spawnedTile2.y = y;
                         break;
                     case 3:
-                        var spawnedTile3 = Instantiate(tileTypes[3], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile3 = Instantiate(tileTypes[3], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile3.name = tileTypes[3].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile3;
                         spawnedTile3.x = x;
                         spawnedTile3.y = y;
                         break;
                     case 4:
-                        var spawnedTile4 = Instantiate(tileTypes[4], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile4 = Instantiate(tileTypes[4], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile4.name = tileTypes[4].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile4;
                         spawnedTile4.x = x;
                         spawnedTile4.y = y;
                         break;
                     case 5:
-                        var spawnedTile5 = Instantiate(tileTypes[5], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile5 = Instantiate(tileTypes[5], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile5.name = tileTypes[5].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile5;
                         spawnedTile5.x = x;
                         spawnedTile5.y = y;
                         break;
                     case 6:
-                        var spawnedTile6 = Instantiate(tileTypes[6], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile6 = Instantiate(tileTypes[6], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile6.name = tileTypes[6].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile6;
                         spawnedTile6.x = x;
                         spawnedTile6.y = y;
                         break;
                     case 7:
-                        var spawnedTile7 = Instantiate(tileTypes[7], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile7 = Instantiate(tileTypes[7], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile7.name = tileTypes[7].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile7;
                         spawnedTile7.x = x;
                         spawnedTile7.y = y;
                         break;
                     case 8:
-                        var spawnedTile8 = Instantiate(tileTypes[8], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile8 = Instantiate(tileTypes[8], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile8.name = tileTypes[8].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile8;
                         spawnedTile8.x = x;
                         spawnedTile8.y = y;
                         break;
                     case 9:
-                        var spawnedTile9 = Instantiate(tileTypes[9], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile9 = Instantiate(tileTypes[9], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile9.name = tileTypes[9].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile9;
                         spawnedTile9.x = x;
                         spawnedTile9.y = y;
                         break;
                     case 10:
-                        var spawnedTile10 = Instantiate(tileTypes[10], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile10 = Instantiate(tileTypes[10], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile10.name = tileTypes[10].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile10;
                         spawnedTile10.x = x;
                         spawnedTile10.y = y;
                         break;
                     case 11:
-                        var spawnedTile11 = Instantiate(tileTypes[11], new Vector3(x, -y), Quaternion.identity);
+                        var spawnedTile11 = Instantiate(tileTypes[11], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile11.name = tileTypes[11].name + " " + x + " " + y;
                         tileGrid[x, y] = spawnedTile11;
                         spawnedTile11.x = x;
@@ -192,15 +192,16 @@ public class GridManager : MonoBehaviour {
         foreach (Actor unit in allies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
-            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[2], coords[1]), Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+            Debug.Log("SPAWNED ALLY");
         }
         
         foreach (Actor unit in enemies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
-            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[2]), Quaternion.identity);
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[2], coords[1]), Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
         }
