@@ -12,8 +12,7 @@ public class GridVisualizer : MonoBehaviour {
     
     [SerializeField] private MouseManager cursorManager;
 
-    [SerializeField] private Material selectMaterial;
-    [SerializeField] private Material scrollMaterial;
+    [SerializeField] private int materialIndex = 3;
 
     private Tile _activeTile;
     private Tile _targetTile;
@@ -31,18 +30,18 @@ public class GridVisualizer : MonoBehaviour {
         Pathfinding pathfinder = new Pathfinding();
         _path = pathfinder.CalculatePath(source, target, GridManager.Instance.GetGrid());
         foreach (Tile tile in _path) {
-            tile.GetComponent<MeshRenderer>().materials[1].SetColor("_Color", Color.yellow);
-            tile.GetComponent<MeshRenderer>().materials[1].SetFloat("_Alpha", 1f);
+            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
+            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
         }
         
-        _targetTile.GetComponent<MeshRenderer>().materials[1].SetColor("_Color", Color.green);
-        _targetTile.GetComponent<MeshRenderer>().materials[1].SetFloat("_Alpha", 1f);
+        _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
+        _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
     }
 
     private void ClearTiles() {
-        _targetTile.GetComponent<MeshRenderer>().materials[1].SetFloat("_Alpha", 0f);
+        _targetTile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
         foreach (Tile tile in _path) {
-            tile.GetComponent<MeshRenderer>().materials[1].SetFloat("_Alpha", 0f);
+            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
         }
     }
 
