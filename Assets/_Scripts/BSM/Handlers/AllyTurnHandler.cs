@@ -5,13 +5,15 @@ using UnityEngine;
 /// <summary>
 /// handler for Ally (player) turn
 /// </summary>
-public class AllyTurnHandler : MonoBehaviour
-{
+public class AllyTurnHandler : MonoBehaviour {
+    private ActorHandler _actorHandler;
     private MouseManager mouseManager;
 
     void Start() {
+        _actorHandler = FindObjectOfType<ActorHandler>();
         mouseManager = FindObjectOfType<MouseManager>();
         mouseManager.OnMovedUnit += AllyUnitActed;
+        BattleStateMachine.Instance.CurrInput.aliveAllies = _actorHandler.allyActors;
     }
 
     /// <summary>

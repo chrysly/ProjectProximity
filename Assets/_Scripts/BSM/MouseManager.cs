@@ -82,13 +82,15 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void IdleState() {
         if (Input.GetMouseButtonDown(0)) {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null) {
-                Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
-                    Debug.Log("Unit: " + " selected");
-                    _currTile = tile;
-                    _currState = mouseStates.UnitSelected;
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+                if (hit.collider != null) {
+                    Tile tile = hit.collider.GetComponent<Tile>();
+                    if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
+                        Debug.Log("Unit: " + " selected");
+                        _currTile = tile;
+                        _currState = mouseStates.UnitSelected;
+                    }
                 }
             }
         }
@@ -101,14 +103,18 @@ public class MouseManager : MonoBehaviour {
         OnUnitSelected?.Invoke(_currTile);
 
         if (Input.GetMouseButtonDown(0)) {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null) {
-                Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(_currTile)) {
-                    _targetTile = tile;
-                    _currState = mouseStates.MoveUnit;
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+                if (hit.collider != null) {
+                    Tile tile = hit.collider.GetComponent<Tile>();
+                    if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(_currTile)) {
+                        _targetTile = tile;
+                        _currState = mouseStates.MoveUnit;
+                    }
                 }
             }
+            //This would probably have to happen during MoveUnit state, by the time the player clicks left click they've already moved on to the next state before
+            //they can cancel - Chris
         } else if (Input.GetMouseButtonDown(1)) {   // if right click, then deselct unit
             _currTile = null;
             _currState = mouseStates.Idle;
@@ -118,11 +124,13 @@ public class MouseManager : MonoBehaviour {
 
     private void OnEnter() {
         if (_currState == mouseStates.UnitSelected) {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null) {
-                Tile tile = hit.collider.GetComponent<Tile>();
-                if (tile != null && tile.Data().isWalkable) {
-                    OnUnitHovered?.Invoke(_currTile, tile);
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+                if (hit.collider != null) {
+                    Tile tile = hit.collider.GetComponent<Tile>();
+                    if (tile != null && tile.Data().isWalkable) {
+                        OnUnitHovered?.Invoke(_currTile, tile);
+                    }
                 }
             }
         }
