@@ -88,7 +88,7 @@ public class GridManager : MonoBehaviour {
     public void GenerateGrid() {
         for (int y = 0; y < intGrid.GetLength(0); y++) {
             for (int x = 0; x < intGrid.GetLength(1); x++) {
-                switch (intGrid[x, y]) {
+                switch (intGrid[y, x]) {
                     case 0:
                         var spawnedTile0 = Instantiate(tileTypes[0], new Vector3(x, 0f, -y), Quaternion.identity);
                         spawnedTile0.name = tileTypes[0].name + " " + x + " " + y;
@@ -188,11 +188,14 @@ public class GridManager : MonoBehaviour {
     private void PlaceUnits() {
         List<AllyActor> allies = actorHandler.allyActors;
         List<EnemyActor> enemies = actorHandler.enemyActors;
+        Tile[,] grid = GridManager.Instance.GetGrid();
 
         foreach (Actor unit in allies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
-            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[1], coords[1]), Quaternion.identity);
+            Vector3 pos = grid[coords[0], coords[1]].transform.position;
+            pos = new Vector3(pos.x, pos.y, pos.z + 1);
+            var newUnit = Instantiate(unit, pos, Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
             Debug.Log("SPAWNED ALLY");
