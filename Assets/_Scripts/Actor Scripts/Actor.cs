@@ -31,15 +31,4 @@ public class Actor : MonoBehaviour {
     public void MoveActor(Vector2 position) {
         //Conditional to check if position is within valid range
     }
-
-    // when the unit is hovered over show the available tiles it can go to
-    void OnMouseOver() {
-        this.GetComponent<SpriteRenderer>().color = Color.gray;
-        _mouseManager.HighlightTiles(_currMoveRange, _currAttackRange);
-    }
-
-    void OnMouseExit() {
-        this.GetComponent<SpriteRenderer>().color = Color.white;
-        _mouseManager.UnhighlightTiles();
-    }
 }
