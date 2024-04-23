@@ -87,9 +87,11 @@ public class MouseManager : MonoBehaviour {
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
-                        Debug.Log("Unit: " + " selected");
-                        _currTile = tile;
-                        _currState = mouseStates.UnitSelected;
+                        if (!tile.occupiedActor.hasMoved) {
+                            Debug.Log("Unit: " + " selected");
+                            _currTile = tile;
+                            _currState = mouseStates.UnitSelected;
+                        }
                     }
                 }
             }

@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 497277177}
   - component: {fileID: 497277176}
   - component: {fileID: 497277175}
+  - component: {fileID: 497277178}
   m_Layer: 0
   m_Name: Handlers
   m_TagString: Untagged
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyActors:
   - {fileID: 8785014878138954001, guid: 9765e83ebda1655458a6248f41d29da4, type: 3}
+  - {fileID: 8785014878138954001, guid: b6fb6cb39b2bd5f4d95be4df5d5cca66, type: 3}
   enemyActors: []
 --- !u!114 &497277176
 MonoBehaviour:
@@ -227,6 +229,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497277178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497277174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a5dbfe3f263a347939daa59566bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationIsRunning: 0
 --- !u!1 &540283454
 GameObject:
   m_ObjectHideFlags: 0

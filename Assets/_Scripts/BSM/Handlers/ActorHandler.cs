@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,7 @@ using UnityEngine;
 public class ActorHandler : MonoBehaviour
 {
     private MouseManager mouseManager;
+    private ActorAnimationHandler _animator;
 
     public List<AllyActor> allyActors;
     public List<EnemyActor> enemyActors;
@@ -22,6 +24,7 @@ public class ActorHandler : MonoBehaviour
 
     private void Awake() {
         mouseManager = FindObjectOfType<MouseManager>();
+        _animator = FindObjectOfType<ActorAnimationHandler>();
         mouseManager.OnMovedUnit += HandleInteraction;  // might be wrong
     }
 
@@ -36,13 +39,21 @@ public class ActorHandler : MonoBehaviour
         if (targetTile.occupiedActor != null) { // this is kinda a redundant check i think?
             UnitAttacks(currTile.occupiedActor, targetTile.occupiedActor);
         }
+        else {
+            UnitMoves();
+        }
+
+        Actor actor = currTile.occupiedActor;
+        actor.hasMoved = true;
+        currTile.occupiedActor = null;
+        targetTile.occupiedActor = actor;
     }
 
     /// <summary>
     /// logic for a unit moving to another tile
     /// </summary>
     private void UnitMoves() {
-
+        //naur we do this in an animation handler lol
     }
 
     /// <summary>
@@ -54,6 +65,8 @@ public class ActorHandler : MonoBehaviour
         // if the target unit after the attack has zero health left, then send the unit death event to the bsm
         OnUnitDefeated?.Invoke(curr);
     }
+    
+    
 
     // if an actor dies then send an event to the BSM
 }
