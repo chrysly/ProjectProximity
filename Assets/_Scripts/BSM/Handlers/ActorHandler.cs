@@ -42,11 +42,6 @@ public class ActorHandler : MonoBehaviour
         else {
             UnitMoves();
         }
-
-        Actor actor = currTile.occupiedActor;
-        actor.hasMoved = true;
-        currTile.occupiedActor = null;
-        targetTile.occupiedActor = actor;
     }
 
     /// <summary>

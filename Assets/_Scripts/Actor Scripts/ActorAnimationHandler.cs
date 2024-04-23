@@ -7,7 +7,6 @@ using UnityEngine;
 public class ActorAnimationHandler : MonoBehaviour
 {
     private MouseManager _mouseManager;
-    public bool animationIsRunning;
 
     private void Awake() {
         _mouseManager = FindObjectOfType<MouseManager>();
@@ -18,7 +17,6 @@ public class ActorAnimationHandler : MonoBehaviour
         Actor actor = source.occupiedActor;
         Pathfinding pathfinding = new Pathfinding();
         List<Tile> path = pathfinding.CalculatePath(source, target, GridManager.Instance.GetGrid());
-        animationIsRunning = true;
         StartCoroutine(TranslateAction(actor, path));
     }
 
@@ -29,7 +27,6 @@ public class ActorAnimationHandler : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
-        animationIsRunning = false;
         yield return null;
     }
 }
