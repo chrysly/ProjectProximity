@@ -25,7 +25,6 @@ public class Selectable : MonoBehaviour
 
     protected virtual void OnMouseEnter() {
         Debug.Log("I was entered");
-        OnEnter?.Invoke();
     }
 
     protected void OnMouseExit() {
