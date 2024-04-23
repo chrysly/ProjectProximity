@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// Handles the player mouse clicks. is a mini internal state machine
@@ -82,8 +83,11 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void IdleState() {
         if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("click");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+            if (Physics.Raycast(ray, out hit)) {
+                Debug.Log("click success");
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile.occupiedActor != null && tile.occupiedActor.GetType() == typeof(AllyActor)) {
@@ -108,8 +112,9 @@ public class MouseManager : MonoBehaviour {
         Debug.Log(_currTile);
 
         if (Input.GetMouseButtonDown(0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+            if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile != null && _currTile.occupiedActor._currMoveRange.Contains(tile)) {
