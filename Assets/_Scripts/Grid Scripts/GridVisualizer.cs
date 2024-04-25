@@ -21,15 +21,15 @@ public class GridVisualizer : MonoBehaviour {
         _cursorManager.OnUnitHovered += SelectTile;
         _cursorManager.OnMovedUnit += ClearTiles;
         _cursorManager.OnUnitSelected += DrawRange;
+        _cursorManager.OnUnitDeselected += DeselectTiles;
     }
 
     private void SelectTile(Tile source, Tile target) {
         if (source == _activeTile && target == _targetTile) return;
-        Debug.Log("drawing");
         ClearTiles(source, target);
         _activeTile = source;
         _targetTile = target;
-        DrawRange(source);
+        RedrawRange(source);
         Pathfinding pathfinder = new Pathfinding();
         _path = pathfinder.CalculatePath(source, target, GridManager.Instance.GetGrid());
         foreach (Tile tile in _path) {
@@ -46,23 +46,52 @@ public class GridVisualizer : MonoBehaviour {
     }
 
     private void DrawRange(Tile source) {
+        if (source == _activeTile) return;
         HashSet<Tile> attackRangeSet = source.occupiedActor._currAttackRange;
         HashSet<Tile> moveRangeSet = source.occupiedActor._currMoveRange;
         var moveDisplay = moveRangeSet.Except(attackRangeSet);
 
         foreach (Tile tile in attackRangeSet) {
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", new Color(0.6f, 0.4f, 0.2f));
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            if (tile.Data().isWalkable) {
+                tile.GetComponent<MeshRenderer>().materials[materialIndex]
+                    .SetColor("_Color", new Color(0.6f, 0.4f, 0.2f));
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            }
         }
 
         foreach (Tile tile in moveDisplay) {
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            if (tile.Data().isWalkable) {
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            }
         }
         
         source.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
         source.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+    }
+    
+    private void RedrawRange(Tile source) {
+        HashSet<Tile> attackRangeSet = source.occupiedActor._currAttackRange;
+        HashSet<Tile> moveRangeSet = source.occupiedActor._currMoveRange;
+        var moveDisplay = moveRangeSet.Except(attackRangeSet);
 
+        foreach (Tile tile in attackRangeSet) {
+            if (tile.Data().isWalkable) {
+                tile.GetComponent<MeshRenderer>().materials[materialIndex]
+                    .SetColor("_Color", new Color(0.6f, 0.4f, 0.2f));
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            }
+        }
+
+        foreach (Tile tile in moveDisplay) {
+            if (tile.Data().isWalkable) {
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
+                tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
+            }
+        }
+        
+        source.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
+        source.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
     }
 
     private void ClearTiles(Tile start, Tile target) {
@@ -79,7 +108,13 @@ public class GridVisualizer : MonoBehaviour {
         // }
 
         foreach (Tile tile in GridManager.Instance.GetGrid()) {
-            tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+            if (tile.Data().isWalkable) tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
+        }
+    }
+    
+    private void DeselectTiles(Tile source) {
+        foreach (Tile tile in GridManager.Instance.GetGrid()) {
+            if (tile.Data().isWalkable) tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 0f);
         }
     }
 

@@ -36,11 +36,14 @@ public class AllyTurnHandler : MonoBehaviour {
     /// </summary>
     private void AllyUnitActed(Tile currTile, Tile targetTile) {
         int currMovedUnits = 0;
+        currTile.occupiedActor.hasMoved = true;
         foreach (AllyActor a in BattleStateMachine.Instance.CurrInput.aliveAllies) {
             if (a.hasMoved) { currMovedUnits++; }
         }
 
+        Debug.Log("Allies Acted: " + currMovedUnits);
         if (currMovedUnits >= BattleStateMachine.Instance.CurrInput.aliveAllies.Count) {
+            Debug.Log("END OF PLAYER TURN");
             EndAllyTurn();
         }
     }

@@ -108,7 +108,7 @@ public class GridManager : MonoBehaviour {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
             Vector3 pos = grid[coords[0], coords[1]].transform.position;
-            pos = new Vector3(pos.x, pos.y + 2f, pos.z);
+            pos = new Vector3(pos.x, pos.y + 1f, pos.z);
             var newUnit = Instantiate(unit, pos, Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
