@@ -20,10 +20,12 @@ public class GridVisualizer : MonoBehaviour {
         _cursorManager = FindObjectOfType<MouseManager>();
         _cursorManager.OnUnitHovered += SelectTile;
         _cursorManager.OnMovedUnit += ClearTiles;
+        _cursorManager.OnUnitSelected += DrawRange;
     }
 
     private void SelectTile(Tile source, Tile target) {
         if (source == _activeTile && target == _targetTile) return;
+        Debug.Log("drawing");
         ClearTiles(source, target);
         _activeTile = source;
         _targetTile = target;
