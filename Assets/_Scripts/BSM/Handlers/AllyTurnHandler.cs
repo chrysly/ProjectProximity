@@ -19,6 +19,7 @@ public class AllyTurnHandler : MonoBehaviour {
     public void AllyTurnStart() {
         mouseManager.ChangeState(MouseManager.mouseStates.Idle);
         foreach (AllyActor a in BattleStateMachine.Instance.CurrInput.aliveAllies) {
+            Debug.Log(a.name);
             a.hasMoved = false;
         }
     }

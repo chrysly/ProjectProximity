@@ -105,23 +105,27 @@ public class GridManager : MonoBehaviour {
         Tile[,] grid = GridManager.Instance.GetGrid();
 
         // test stuff
-        List<AllyActor> test = new List<AllyActor>();
+        //List<AllyActor> test = new List<AllyActor>();
 
-        foreach (Actor unit in allies) {
+        foreach (AllyActor unit in allies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
             Vector3 pos = grid[coords[0], coords[1]].transform.position;
             pos = new Vector3(pos.x, pos.y + 1f, pos.z);
             var newUnit = Instantiate(unit, pos, Quaternion.identity);
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+
+            BattleStateMachine.Instance.CurrInput.aliveAllies.Add((AllyActor) tileGrid[coords[0], coords[1]].occupiedActor);
+
             Debug.Log("SPAWNED ALLY");
 
             // test
-            test.Add((AllyActor) newUnit);
+            //test.Add((AllyActor) newUnit);
         }
 
-        BattleStateMachine.Instance.CurrInput.aliveAllies = test;
+        //BattleStateMachine.Instance.CurrInput.aliveAllies = test;
         
         foreach (Actor unit in enemies) {
             // hard coded bc fml
