@@ -23,16 +23,16 @@ public class Tile : MonoBehaviour
     // get the set of tiles that can be reached with range X
     public HashSet<Tile> getTilesInRange(int range, Tile[,] grid) {
         HashSet<Tile> tilesInRange = new HashSet<Tile>();
-
+        Debug.Log("Checking: " + z + ", " + x);
         int startX = Mathf.Max(0, x - range);
         int endX = Mathf.Min(grid.GetLength(0) - 1, x + range);
-        int startY = Mathf.Max(0, z - range);
-        int endY = Mathf.Min(grid.GetLength(1) - 1, z + range);
+        int startZ = Mathf.Max(0, z - range);
+        int endZ = Mathf.Min(grid.GetLength(1) - 1, z + range);
 
         for (int x = startX; x <= endX; x++) {
-            for (int y = startY; y <= endY; y++) {
+            for (int y = startZ; y <= endZ; y++) {
                 if (Mathf.Abs(x - x) + Mathf.Abs(y - y) <= range) {
-                    tilesInRange.Add(grid[x, y]);
+                    tilesInRange.Add(grid[y, x]);
                 }
             }
         }
@@ -46,21 +46,16 @@ public class Tile : MonoBehaviour
         
         //NORTH
         Tile[,] grid = GridManager.Instance.GetGrid();
-        if (z > 0 && grid[x, z - 1].tileData.isWalkable) adjacentTiles.Add(grid[x, z - 1]);
+        if (x > 0 && grid[z, x - 1].tileData.isWalkable) adjacentTiles.Add(grid[z, x - 1]);
         
         //SOUTH
-        if (z < grid.GetLength(0) - 1 && grid[x, z + 1].tileData.isWalkable) adjacentTiles.Add(grid[x, z + 1]);
+        if (x < grid.GetLength(1) - 1 && grid[z, x + 1].tileData.isWalkable) adjacentTiles.Add(grid[z, x + 1]);
         
         //EAST
-        if (x > 0 && grid[x - 1, z].tileData.isWalkable) adjacentTiles.Add(grid[x - 1, z]);
+        if (z > 0 && grid[z - 1, x].tileData.isWalkable) adjacentTiles.Add(grid[z - 1, x]);
         
         //WEST
-        if (x < grid.GetLength(1) - 1 && grid[x + 1, z].tileData.isWalkable) adjacentTiles.Add(grid[x + 1, z]);
-        
-        Debug.Log("Curr Tile: " + x + ", " + z);
-        foreach (Tile tile in adjacentTiles) {
-            Debug.Log("Tile in range: " + tile.x + ", " + tile.z);
-        }
+        if (z < grid.GetLength(0) - 1 && grid[z + 1, x].tileData.isWalkable) adjacentTiles.Add(grid[z + 1, x]);
 
         return adjacentTiles;
     }

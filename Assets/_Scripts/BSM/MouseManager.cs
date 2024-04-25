@@ -126,30 +126,29 @@ public class MouseManager : MonoBehaviour {
                     }
                 }
             }
-            //This would probably have to happen during MoveUnit state, by the time the player clicks left click they've already moved on to the next state before
-            //they can cancel - Chris
         } else if (Input.GetMouseButtonDown(1)) {   // if right click, then deselct unit
-            Debug.Log("why called");
+            OnUnitDeselected?.Invoke(_currTile);
             _currTile = null;
             _currState = mouseStates.Idle;
-            OnUnitDeselected?.Invoke(_currTile);
         }
     }
 
     private void OnEnter() {
         if (_currState == mouseStates.UnitSelected) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward, out hit)) {
+            if (Physics.Raycast(ray, out hit)) {
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     if (tile != null && tile.Data().isWalkable) {
                         if (_currTile.occupiedActor._currMoveRange.Contains(tile)) {
+                            Debug.Log("hovered");
                             OnUnitHovered?.Invoke(_currTile, tile);
                         }
                     }
                 }
             }
-        }
+        }  
     }
 
     /// <summary>

@@ -30,7 +30,7 @@ public class ActorAnimationHandler : MonoBehaviour
     private IEnumerator TranslateAction(Actor actor, List<Tile> path) {
         float delay = 1.8f / path.Count;
         foreach (Tile tile in path) {
-            actor.transform.DOMove(tile.transform.position, delay - 0.1f);
+            actor.transform.DOMove(tile.transform.position + new Vector3(0f, 1f, 0f), delay - 0.1f);
             yield return new WaitForSeconds(delay);
         }
 
