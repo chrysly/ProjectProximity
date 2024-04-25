@@ -53,4 +53,11 @@ public class Actor : MonoBehaviour {
     public int[] GetSpawnCoordinates() {
         return new [] {data.x, data.y, data.z};
     }
+
+    //Vu's method for ui stuff
+    public string getName()
+    {
+        return data.nameTag;
+    }
+
 }
