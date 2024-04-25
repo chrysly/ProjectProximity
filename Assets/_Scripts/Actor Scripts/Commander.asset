@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3874894801fa6f4789880a72866a2dd, type: 3}
-  m_Name: UnitTest 4
+  m_Name: Commander
   m_EditorClassIdentifier: 
+  nameTag: Commander
   attackPower: 10
   maxHealth: 10
-  attackRange: 2
+  attackRange: 1
   moveRange: 3
-  x: 7
-  y: 2
-  z: 0
+  x: 9
+  y: 3
+  z: 1
