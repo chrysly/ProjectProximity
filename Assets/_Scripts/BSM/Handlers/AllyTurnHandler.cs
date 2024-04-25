@@ -6,14 +6,11 @@ using UnityEngine;
 /// handler for Ally (player) turn
 /// </summary>
 public class AllyTurnHandler : MonoBehaviour {
-    private ActorHandler _actorHandler;
     private MouseManager mouseManager;
 
     void Start() {
-        _actorHandler = FindObjectOfType<ActorHandler>();
         mouseManager = FindObjectOfType<MouseManager>();
         mouseManager.OnMovedUnit += AllyUnitActed;
-        BattleStateMachine.Instance.CurrInput.aliveAllies = _actorHandler.allyActors;
     }
 
     /// <summary>
@@ -37,7 +34,9 @@ public class AllyTurnHandler : MonoBehaviour {
     private void AllyUnitActed(Tile currTile, Tile targetTile) {
         int currMovedUnits = 0;
         currTile.occupiedActor.hasMoved = true;
+        Debug.Log(currTile.occupiedActor.hasMoved);
         foreach (AllyActor a in BattleStateMachine.Instance.CurrInput.aliveAllies) {
+            Debug.Log("name " + a.name + ", " + a.hasMoved);
             if (a.hasMoved) { currMovedUnits++; }
         }
 

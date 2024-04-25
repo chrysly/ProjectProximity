@@ -104,6 +104,9 @@ public class GridManager : MonoBehaviour {
         List<EnemyActor> enemies = actorHandler.enemyActors;
         Tile[,] grid = GridManager.Instance.GetGrid();
 
+        // test stuff
+        List<AllyActor> test = new List<AllyActor>();
+
         foreach (Actor unit in allies) {
             // hard coded bc fml
             int[] coords = unit.GetSpawnCoordinates();
@@ -113,7 +116,12 @@ public class GridManager : MonoBehaviour {
             newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
             tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
             Debug.Log("SPAWNED ALLY");
+
+            // test
+            test.Add((AllyActor) newUnit);
         }
+
+        BattleStateMachine.Instance.CurrInput.aliveAllies = test;
         
         foreach (Actor unit in enemies) {
             // hard coded bc fml

@@ -15,7 +15,8 @@ public partial class BattleStateMachine {
             if (MySM.CallAnimDelay()) { MySM.Transition<AllyTurn>();  }
         }
 
-        public override void Exit(BattleStateInput i) { 
+        public override void Exit(BattleStateInput i) {
+            Debug.Log("enemy turn end");
             base.Exit(i);
         }
     }
