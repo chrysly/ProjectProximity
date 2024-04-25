@@ -12,7 +12,7 @@ public class Pathfinding {
      */
 
     private float CalculateDistance(Tile tileA, Tile tileB) {
-        return Vector2.Distance(new Vector2(tileA.x, tileA.y), new Vector2(tileB.x, tileB.y));
+        return Vector2.Distance(new Vector2(tileA.x, tileA.z), new Vector2(tileB.x, tileB.z));
     }
 
     private List<Tile> TracePath(Tile start, Tile target) {

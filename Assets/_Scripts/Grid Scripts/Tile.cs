@@ -11,7 +11,7 @@ public class Tile : MonoBehaviour
     public TileData Data() { return tileData; }
     
     public int x;
-    public int y;
+    public int z;
 
     public Actor occupiedActor;
     // maybe var here for coordinates actually
@@ -26,8 +26,8 @@ public class Tile : MonoBehaviour
 
         int startX = Mathf.Max(0, x - range);
         int endX = Mathf.Min(grid.GetLength(0) - 1, x + range);
-        int startY = Mathf.Max(0, y - range);
-        int endY = Mathf.Min(grid.GetLength(1) - 1, y + range);
+        int startY = Mathf.Max(0, z - range);
+        int endY = Mathf.Min(grid.GetLength(1) - 1, z + range);
 
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
@@ -46,20 +46,20 @@ public class Tile : MonoBehaviour
         
         //NORTH
         Tile[,] grid = GridManager.Instance.GetGrid();
-        if (y > 0 && grid[x, y - 1].tileData.isWalkable) adjacentTiles.Add(grid[x, y - 1]);
+        if (z > 0 && grid[x, z - 1].tileData.isWalkable) adjacentTiles.Add(grid[x, z - 1]);
         
         //SOUTH
-        if (y < grid.GetLength(0) - 1 && grid[x, y + 1].tileData.isWalkable) adjacentTiles.Add(grid[x, y + 1]);
+        if (z < grid.GetLength(0) - 1 && grid[x, z + 1].tileData.isWalkable) adjacentTiles.Add(grid[x, z + 1]);
         
         //EAST
-        if (x > 0 && grid[x - 1, y].tileData.isWalkable) adjacentTiles.Add(grid[x - 1, y]);
+        if (x > 0 && grid[x - 1, z].tileData.isWalkable) adjacentTiles.Add(grid[x - 1, z]);
         
         //WEST
-        if (x < grid.GetLength(1) - 1 && grid[x + 1, y].tileData.isWalkable) adjacentTiles.Add(grid[x + 1, y]);
+        if (x < grid.GetLength(1) - 1 && grid[x + 1, z].tileData.isWalkable) adjacentTiles.Add(grid[x + 1, z]);
         
-        Debug.Log("Curr Tile: " + x + ", " + y);
+        Debug.Log("Curr Tile: " + x + ", " + z);
         foreach (Tile tile in adjacentTiles) {
-            Debug.Log("Tile in range: " + tile.x + ", " + tile.y);
+            Debug.Log("Tile in range: " + tile.x + ", " + tile.z);
         }
 
         return adjacentTiles;
