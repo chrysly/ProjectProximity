@@ -59,6 +59,9 @@ public class GridVisualizer : MonoBehaviour {
             tile.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.yellow);
             tile.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
         }
+        
+        source.GetComponent<MeshRenderer>().materials[materialIndex].SetColor("_Color", Color.green);
+        source.GetComponent<MeshRenderer>().materials[materialIndex].SetFloat("_Alpha", 1f);
 
     }
 
