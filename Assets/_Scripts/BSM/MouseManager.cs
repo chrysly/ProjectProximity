@@ -82,6 +82,7 @@ public class MouseManager : MonoBehaviour {
     /// during the players turn, but nothing is currently selected
     /// </summary>
     private void IdleState() {
+        Debug.Log("In idle mouse state");
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -156,10 +157,9 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void MoveUnitState() {
         OnMovedUnit?.Invoke(_currTile, _targetTile);
-        Actor actor = _currTile.occupiedActor;
-        actor.hasMoved = true;
+        _currTile.occupiedActor.hasMoved = true;
         _currTile.occupiedActor = null;
-        _targetTile.occupiedActor = actor;
+        _targetTile.occupiedActor = _currTile.occupiedActor;
         
         _currTile = null;
         _targetTile = null;

@@ -8,8 +8,8 @@ using UnityEngine;
 public class BattleStateInput : StateInput
 {
     #region Global Variables
-    public List<Actor> allies;
-    public List<Actor> enemies;
+    //public List<Actor> allies;
+    //public List<Actor> enemies;
 
     public List<AllyActor> aliveAllies;
     public List<EnemyActor> aliveEnemies;
