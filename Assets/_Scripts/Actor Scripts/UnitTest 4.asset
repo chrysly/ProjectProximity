@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3874894801fa6f4789880a72866a2dd, type: 3}
+  m_Name: UnitTest 4
+  m_EditorClassIdentifier: 
+  attackPower: 10
+  maxHealth: 10
+  attackRange: 2
+  moveRange: 3
+  x: 3
+  y: 3
+  z: 0
