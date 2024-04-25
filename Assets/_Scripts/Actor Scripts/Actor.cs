@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,6 +44,10 @@ public class Actor : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public float GetHealth() {
+        return _health;
     }
 
     public int[] GetSpawnCoordinates() {
