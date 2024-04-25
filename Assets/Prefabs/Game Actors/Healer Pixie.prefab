@@ -231,6 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1625149384528027959}
+  - component: {fileID: -3855078385328563690}
   m_Layer: 0
   m_Name: Healer Pixie
   m_TagString: Untagged
@@ -255,3 +256,17 @@ Transform:
   - {fileID: 2984454779326186738}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3855078385328563690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8827959951280510488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271f2aaa186156449203325031022c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: a7f01403460911145b27ee07b340c5f7, type: 2}
+  hasMoved: 0

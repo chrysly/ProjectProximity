@@ -104,23 +104,23 @@ public class GridManager : MonoBehaviour {
         List<EnemyActor> enemies = actorHandler.enemyActors;
         Tile[,] grid = GridManager.Instance.GetGrid();
 
-        //foreach (Actor unit in allies) {
-        //    // hard coded bc fml
-        //    int[] coords = unit.GetSpawnCoordinates();
-        //    Vector3 pos = grid[coords[0], coords[1]].transform.position;
-        //    pos = new Vector3(pos.x, pos.y + 2f, pos.z);
-        //    var newUnit = Instantiate(unit, pos, Quaternion.identity);
-        //    newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
-        //    tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
-        //    Debug.Log("SPAWNED ALLY");
-        //}
+        foreach (Actor unit in allies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            Vector3 pos = grid[coords[0], coords[1]].transform.position;
+            pos = new Vector3(pos.x, pos.y + 2f, pos.z);
+            var newUnit = Instantiate(unit, pos, Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+            Debug.Log("SPAWNED ALLY");
+        }
         
-        //foreach (Actor unit in enemies) {
-        //    // hard coded bc fml
-        //    int[] coords = unit.GetSpawnCoordinates();
-        //    var newUnit = Instantiate(unit, new Vector3(coords[0], coords[2], coords[1]), Quaternion.identity);
-        //    newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
-        //    tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
-        //}
+        foreach (Actor unit in enemies) {
+            // hard coded bc fml
+            int[] coords = unit.GetSpawnCoordinates();
+            var newUnit = Instantiate(unit, new Vector3(coords[0], coords[2], coords[1]), Quaternion.identity);
+            newUnit.OnTurnStart(tileGrid[coords[0], coords[1]]);
+            tileGrid[coords[0], coords[1]].occupiedActor = newUnit;
+        }
     }
 }

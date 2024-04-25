@@ -83,11 +83,9 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void IdleState() {
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("click");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
-                Debug.Log("click success");
                 if (hit.collider != null) {
                     Tile tile = hit.collider.GetComponent<Tile>();
                     Debug.Log(tile.occupiedActor);
@@ -95,7 +93,7 @@ public class MouseManager : MonoBehaviour {
                         if (!tile.occupiedActor.hasMoved) {
                             Debug.Log("Unit selected");
                             _currTile = tile;
-                            Debug.Log("currTile is: " + _currTile);
+                            Debug.Log("currTile is: " + _currTile.occupiedActor);
                             _currState = mouseStates.UnitSelected;
                         }
                     }
