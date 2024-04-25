@@ -16,6 +16,6 @@ MonoBehaviour:
   maxHealth: 10
   attackRange: 2
   moveRange: 3
-  x: 3
-  y: 3
+  x: 7
+  y: 2
   z: 0
