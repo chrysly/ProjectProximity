@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 7484352111491686214}
   - component: {fileID: 546577506956176728}
   - component: {fileID: 6543526164749453058}
-  - component: {fileID: 4252874284989409361}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -226,19 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43474af8adf4404dadd17f67df8c14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4252874284989409361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6017706968246129613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4159f4f520975b649864a87fd143ba1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 2643333059027322692}
 --- !u!1 &8461757144752642345
 GameObject:
   m_ObjectHideFlags: 0
