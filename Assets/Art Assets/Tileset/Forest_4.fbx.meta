@@ -3,7 +3,12 @@ guid: 295ce9e13c06a464d811b790967640d6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dirt_Rocky
+    second: {fileID: 2100000, guid: fe0ce9473fdd8d8469c3fa410af249c0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

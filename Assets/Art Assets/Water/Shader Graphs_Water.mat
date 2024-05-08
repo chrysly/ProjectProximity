@@ -59,7 +59,7 @@ Material:
     - _Foam_3_Level: 62.7
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.11
+    - _Speed: 0
     - _Tiling: 0.3
     m_Colors:
     - _Water_Color: {r: 0.16963202, g: 0.47120002, b: 0.589, a: 0}
