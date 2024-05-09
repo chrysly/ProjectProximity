@@ -40,15 +40,19 @@ public class ActorHandler : MonoBehaviour
             UnitAttacks(currTile.occupiedActor, targetTile.occupiedActor);
         }
         else {
-            UnitMoves();
+            UnitMoves(currTile, targetTile);
         }
     }
 
     /// <summary>
     /// logic for a unit moving to another tile
     /// </summary>
-    private void UnitMoves() {
+    private void UnitMoves(Tile currTile, Tile targetTile) {
         //naur we do this in an animation handler lol
+        currTile.occupiedActor.hasMoved = true;
+        Debug.Log(currTile.occupiedActor.hasMoved);
+        targetTile.occupiedActor = currTile.occupiedActor;
+        currTile.occupiedActor = null;
     }
 
     /// <summary>

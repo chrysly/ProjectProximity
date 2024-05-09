@@ -109,7 +109,7 @@ public class MouseManager : MonoBehaviour {
     private void UnitSelectedState() {
         OnUnitSelected?.Invoke(_currTile);
 
-        Debug.Log(_currTile);
+        //Debug.Log(_currTile);
 
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -157,9 +157,9 @@ public class MouseManager : MonoBehaviour {
     /// </summary>
     private void MoveUnitState() {
         OnMovedUnit?.Invoke(_currTile, _targetTile);
-        _currTile.occupiedActor.hasMoved = true;
-        _currTile.occupiedActor = null;
-        _targetTile.occupiedActor = _currTile.occupiedActor;
+        //_currTile.occupiedActor.hasMoved = true;
+        //_currTile.occupiedActor = null;
+        //_targetTile.occupiedActor = _currTile.occupiedActor;
         
         _currTile = null;
         _targetTile = null;

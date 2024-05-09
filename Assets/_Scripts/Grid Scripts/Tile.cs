@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
     // get the set of tiles that can be reached with range X
     public HashSet<Tile> getTilesInRange(int range, Tile[,] grid) {
         HashSet<Tile> tilesInRange = new HashSet<Tile>();
-        Debug.Log("Checking: " + z + ", " + x);
+        //Debug.Log("Checking: " + z + ", " + x);
         int startX = Mathf.Max(0, x - range);
         int endX = Mathf.Min(grid.GetLength(0) - 1, x + range);
         int startZ = Mathf.Max(0, z - range);
