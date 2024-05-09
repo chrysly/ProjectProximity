@@ -56,7 +56,7 @@ public class Pathfinding {
             closedSet.Add(currTile);
 
             if (currTile == target) {
-                Debug.Log(TracePath(start, target).Count);
+                //Debug.Log(TracePath(start, target).Count);
                 return TracePath(start, target);
             }
 

@@ -19,7 +19,7 @@ public class AllyTurnHandler : MonoBehaviour {
     public void AllyTurnStart() {
         mouseManager.ChangeState(MouseManager.mouseStates.Idle);
         foreach (AllyActor a in BattleStateMachine.Instance.CurrInput.aliveAllies) {
-            Debug.Log(a.name);
+            //Debug.Log(a.name);
             a.hasMoved = false;
         }
     }
@@ -34,8 +34,6 @@ public class AllyTurnHandler : MonoBehaviour {
     /// </summary>
     private void AllyUnitActed(Tile currTile, Tile targetTile) {
         int currMovedUnits = 0;
-        currTile.occupiedActor.hasMoved = true;
-        Debug.Log(currTile.occupiedActor.hasMoved);
         foreach (AllyActor a in BattleStateMachine.Instance.CurrInput.aliveAllies) {
             Debug.Log("name " + a.name + ", " + a.hasMoved);
             if (a.hasMoved) { currMovedUnits++; }
