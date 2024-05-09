@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,18 @@ public class Actor : MonoBehaviour {
         return false;
     }
 
+    public float GetHealth() {
+        return _health;
+    }
+
     public int[] GetSpawnCoordinates() {
         return new [] {data.x, data.y, data.z};
     }
+
+    //Vu's method for ui stuff
+    public string getName()
+    {
+        return data.nameTag;
+    }
+
 }
